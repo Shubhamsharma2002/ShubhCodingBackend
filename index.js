@@ -1,5 +1,6 @@
 
 import express from "express";
+import router from "./src/Routes/index.js";
 
 
 
@@ -10,7 +11,7 @@ server.use(
 );
 server.use(express.json());
 
-
+server.use('/api/v1', router);
 
 
 server.get('/', (req, res) => {
