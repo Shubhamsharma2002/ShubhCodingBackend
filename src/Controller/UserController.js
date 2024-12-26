@@ -47,5 +47,15 @@ const login = async(req,res)=>{
   }
 }
 
+const getuserDetails = async(req,res)=>{
+    console.log("Called")
+  let { userId } = req.body;
+  let user = await User.findOne({ _id: userId });
+  if (user) {
+    return res.json({ success: true, message: "User details fetched successfully", user: user });
+  } else {
+    return res.json({ success: false, message: "User not found!" });
+  }
+}
 
-export {register,login};
+export {register,login,getuserDetails};
